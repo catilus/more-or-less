@@ -20,6 +20,7 @@ int main(int argc, const char * argv[]) {
         
         // Initialize variables and constants
         int mysteryNumber=0, inputNumber=0, counter=0, playerMode=0, levelDifficulty=0;
+        const int MIN=0;
                 
         printf("More or less -- the game\n\n");
         printf("Which player mode?\n");
@@ -39,8 +40,8 @@ int main(int argc, const char * argv[]) {
                 switch (levelDifficulty) {
                     case 1:
                         {
-                        const int MAX = 100, MIN = 1;
-                        mysteryNumber = (rand() % (MAX - MIN + 1)) + MIN;
+                        int maxNumber = 100;
+                        mysteryNumber = (rand() % (maxNumber - MIN + 1)) + MIN;
                         
                         printf("1 player mode\n\n");
                         printf("Guess a number between 1 and 100:\n");
@@ -67,8 +68,8 @@ int main(int argc, const char * argv[]) {
                         
                     case 2:
                         {
-                        const int MAX = 1000, MIN = 1;
-                        mysteryNumber = (rand() % (MAX - MIN + 1)) + MIN;
+                        int maxNumber = 1000;
+                        mysteryNumber = (rand() % (maxNumber - MIN + 1)) + MIN;
                         
                         printf("1 player mode\n\n");
                         printf("Guess a number between 1 and 1,000:\n");
@@ -94,8 +95,8 @@ int main(int argc, const char * argv[]) {
                         break;
                     case 3:
                         {
-                        const int MAX = 10000, MIN = 1;
-                        mysteryNumber = (rand() % (MAX - MIN + 1)) + MIN;
+                        int maxNumber = 10000;
+                        mysteryNumber = (rand() % (maxNumber - MIN + 1)) + MIN;
                         
                         printf("1 player mode\n\n");
                         printf("Guess a number between 1 and 10,000:\n");
