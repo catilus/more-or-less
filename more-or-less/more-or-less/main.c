@@ -19,9 +19,8 @@ int main(int argc, const char * argv[]) {
     do {
         
         // Initialize variables and constants
-        int mysteryNumber=0, inputNumber=0, counter=0, playerMode=0;
-        const int MAX = 100, MIN = 1;
-        
+        int mysteryNumber=0, inputNumber=0, counter=0, playerMode=0, levelDifficulty=0;
+                
         printf("More or less -- the game\n\n");
         printf("Which player mode?\n");
         printf("1. 1 player\n");
@@ -29,31 +28,101 @@ int main(int argc, const char * argv[]) {
         scanf("%d", &playerMode);
         
         switch (playerMode) {
-            case 1:
             // Case 1: one player
-                mysteryNumber = (rand() % (MAX - MIN + 1)) + MIN;
-        
-                printf("1 player mode\n\n");
-                printf("Guess a number between 1 and 100:\n");
+            case 1:
+                printf("Difficulty level:\n");
+                printf("1. Number between 1 and 100\n");
+                printf("2. Number between 1 and 1,000\n");
+                printf("3. Number between 1 and 10,000\n");
+                scanf("%d", &levelDifficulty);
                 
-                // Loop asking to guess until the mystery number is found
-                while (inputNumber != mysteryNumber) {
-                    scanf("%d", &inputNumber);
-                        
-                    counter++;
-                        
-                    if (inputNumber == mysteryNumber)
+                switch (levelDifficulty) {
+                    case 1:
                         {
-                        printf("You have guessed the mystery number in %d tries!!!\n", counter);
-                        printf("To stop the game press [0], to play again press any number: ");
-                        scanf("%d", &keepPlaying);
-                        }
-                    else if (inputNumber < mysteryNumber)
-                        printf("It's more...\n");
-                    else
-                        printf("It's less...\n");
+                        const int MAX = 100, MIN = 1;
+                        mysteryNumber = (rand() % (MAX - MIN + 1)) + MIN;
                         
-                    }
+                        printf("1 player mode\n\n");
+                        printf("Guess a number between 1 and 100:\n");
+                                
+                        // Loop asking to guess until the mystery number is found
+                        while (inputNumber != mysteryNumber) {
+                            scanf("%d", &inputNumber);
+                                        
+                            counter++;
+                                        
+                            if (inputNumber == mysteryNumber)
+                                {
+                                printf("You have guessed the mystery number in %d tries!!!\n", counter);
+                                printf("To stop the game press [0], to play again press any number: ");
+                                scanf("%d", &keepPlaying);
+                                        }
+                            else if (inputNumber < mysteryNumber)
+                                printf("It's more...\n");
+                            else
+                                printf("It's less...\n");
+                            }
+                        }
+                        break;
+                        
+                    case 2:
+                        {
+                        const int MAX = 1000, MIN = 1;
+                        mysteryNumber = (rand() % (MAX - MIN + 1)) + MIN;
+                        
+                        printf("1 player mode\n\n");
+                        printf("Guess a number between 1 and 1,000:\n");
+                                
+                        // Loop asking to guess until the mystery number is found
+                        while (inputNumber != mysteryNumber) {
+                            scanf("%d", &inputNumber);
+                                        
+                            counter++;
+                                        
+                            if (inputNumber == mysteryNumber)
+                                {
+                                printf("You have guessed the mystery number in %d tries!!!\n", counter);
+                                printf("To stop the game press [0], to play again press any number: ");
+                                scanf("%d", &keepPlaying);
+                                        }
+                            else if (inputNumber < mysteryNumber)
+                                printf("It's more...\n");
+                            else
+                                printf("It's less...\n");
+                            }
+                        }
+                        break;
+                    case 3:
+                        {
+                        const int MAX = 10000, MIN = 1;
+                        mysteryNumber = (rand() % (MAX - MIN + 1)) + MIN;
+                        
+                        printf("1 player mode\n\n");
+                        printf("Guess a number between 1 and 10,000:\n");
+                                
+                        // Loop asking to guess until the mystery number is found
+                        while (inputNumber != mysteryNumber) {
+                            scanf("%d", &inputNumber);
+                                        
+                            counter++;
+                                        
+                            if (inputNumber == mysteryNumber)
+                                {
+                                printf("You have guessed the mystery number in %d tries!!!\n", counter);
+                                printf("To stop the game press [0], to play again press any number: ");
+                                scanf("%d", &keepPlaying);
+                                        }
+                            else if (inputNumber < mysteryNumber)
+                                printf("It's more...\n");
+                            else
+                                printf("It's less...\n");
+                            }
+                        }
+                        break;
+                    default:
+                        printf("Please enter 1, 2 or 3");
+                        break;
+                }
                 break;
                 
             case 2:
@@ -85,7 +154,7 @@ int main(int argc, const char * argv[]) {
                 break;
                 
             default:
-                printf("Please choose either 1 or 2");
+                printf("Please choose either 1 or 2\n\n");
                 break;
             }
         } while (keepPlaying);
